@@ -10,8 +10,7 @@ import AboutUs from './components/aboutUs.components';
 import CreateEvent from './dashboard/createEvent';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import Login from './dashboard/login';
-
+import Login from './dashboard/register';
 
 class Header extends React.Component {
 
@@ -63,7 +62,7 @@ class Header extends React.Component {
 		<div className="top-right">
 			<ul>
 				<li>
-					<a href ={'/login'}>Sign In / Sign Up</a>
+					<Link to ={'/login'}>Sign In / Sign Up</Link>
 					
 				</li>
 			</ul>

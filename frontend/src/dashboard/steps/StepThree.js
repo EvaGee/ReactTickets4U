@@ -23,7 +23,6 @@ export class StepThree extends React.Component {
   render () {
     return (
       <div>
-                  <form class="stepy-validation" id="myform" action="<?php echo base_url(); ?>index.php/create-event" method="post" enctype="multipart/form-data">
 
            <fieldset title="3">
                         <legend class="text-semibold">Step 3</legend>
@@ -48,7 +47,6 @@ export class StepThree extends React.Component {
                         </div>
 
                     </fieldset>
-                    </form>
        
       </div>
     )

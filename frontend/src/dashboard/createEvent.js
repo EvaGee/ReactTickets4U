@@ -19,7 +19,9 @@ render(){
                 <div className="panel-heading">
                     <h6 className="panel-title">Create Event</h6>
                     <div className='step-progress'>
-                        <StepZilla steps={steps} showNavigation={true} showSteps={false}/>
+						<form class="stepy-validation" id="myform" action="<?php echo base_url(); ?>index.php/create-event" method="post" enctype="multipart/form-data">
+                        	<StepZilla steps={steps} showNavigation={true} showSteps={false}/>
+						</form>		
                     </div>
                 </div>    
             </div>

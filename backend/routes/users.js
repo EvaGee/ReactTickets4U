@@ -25,6 +25,15 @@ db.query(sql, (err, result)=>{
 });
 });
 
+app.get('/category', function(req,res){
+    var sql = 'SELECT * FROM category';
+    db.query(sql, (err, result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+    });
+
 app.get('/data', function(req,res){
     var sql = 'SELECT * FROM event_Assets';
     db.query(sql, (err, result)=>{
@@ -56,17 +65,14 @@ app.get('/eventsTickets', function(req,res){
         
 app.post('/data', function(req, res){
 	console.log(req.body); 
-    var data = {name:req.body.name, age:req.body.age, job:req.body.job};
-    var sql = 'INSERT INTO ninja SET ?';
+    var data = {event_description:req.body.event_description};
+    var sql = 'INSERT INTO event_Assets SET ?';
     db.query(sql, data, (err, result)=>{
     if(err) throw err;
     console.log(result);
-    res.send({
-        status: 'Data sukses diinput!',
-        no: null, 
-		name: req.body.name,
-        age: req.body.age,
-        job:req.body.job
+    res.send({ 
+		event_description: req.body.event_description,
+
 	});
 });
 });

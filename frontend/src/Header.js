@@ -10,6 +10,7 @@ import AboutUs from './components/aboutUs.components';
 import CreateEvent from './dashboard/createEvent';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Login from './dashboard/login';
 
 
 class Header extends React.Component {
@@ -62,7 +63,7 @@ class Header extends React.Component {
 		<div className="top-right">
 			<ul>
 				<li>
-					<a href ={'/createEvent'}>Sign In / Sign Up</a>
+					<a href ={'/login'}>Sign In / Sign Up</a>
 					
 				</li>
 			</ul>
@@ -92,7 +93,7 @@ class Header extends React.Component {
               <Route exact path='/home'  />
               <Route path='/aboutUs' component={AboutUs} />
 			  <Route path='/createEvent' component={CreateEvent} />
-
+			  <Route path='/login' component={Login} />
               
           </Switch>
         </div>

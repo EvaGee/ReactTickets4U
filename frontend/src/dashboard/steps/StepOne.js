@@ -8,7 +8,7 @@ export class StepOne extends React.Component {
         super(props);
     
         this.state = {
-          venue: '',
+          venue:'',
           location: '',
           title: '',
           category:'',
@@ -42,7 +42,7 @@ export class StepOne extends React.Component {
           
           .catch(error => this.setState({ error, isLoading: false }));   
       }
-      
+     
     
       componentDidMount() {this.getPosts();}
     
@@ -107,7 +107,21 @@ export class StepOne extends React.Component {
         return errMsgs;
       }
     
-      _grabUserInput() {
+      _grabUserInput(e) {
+        e.preventDefault();
+        var url = 'http://localhost:3210/events';
+        axios.post(url, {
+
+            location: this.refs.location.value,
+            venue: this.refs.venue.value,
+            category: this.refs.category.value,
+            date: this.refs.date.value,
+            end_date: this.refs.end_date.value,
+            title: this.refs.title.value
+            .then(function (response) {
+                console.log(response);
+              })
+        })
         return {
           location: this.refs.location.value,
           venue: this.refs.venue.value,

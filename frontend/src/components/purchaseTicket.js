@@ -76,7 +76,8 @@ getTickets() {
   componentDidMount() {
     this.getTickets();
 	}
-	
+    
+    
 	
     render() {
         const { isLoading, ticketTypes , eventsTickets} = this.state;
@@ -88,8 +89,25 @@ getTickets() {
               if (eventId==c.event_id && c.ticket_type===o.typeid) results.push(Object.assign( o, c));
                })
       });
-      
+       
           console.log(results);
+
+        const  ticketnumber = number => {
+            let arr = []
+            let i = 0;
+            let newnumber;
+            if (number > 10){
+                newnumber = 10
+            } else {
+                newnumber = number
+            }
+            for (i =0; i <= newnumber; i++) {
+                // let opts = <option>{i}</option>;
+                arr.push(i)
+            }
+            console.log(arr);
+            // return arr;
+        }
 
         return (
             <div className="jumbotron">
@@ -164,13 +182,22 @@ getTickets() {
                                                     Moment()>Moment(result.ticket_close_on) &&
                                                      <span className='label bg-danger'>SOLD OUT</span>
                                                 }
-                                                {
-                                                    
-                                                    result.available_tickets<10 &&
-                                                    <select name="" id="" onChange={this.onSelect.bind(this)}>                                                                                       
-                                                    <option value=""></option>cd 
+                                                
+                                                    { result.available_tickets>1 && Moment()<Moment(result.ticket_close_on)&&
+                                                    <select>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
                                                     </select>
-                                                }
+                                                        // ticketnumber(result.available_tickets)
+                                                        // .forEach(
+                                                        //     item => <option key={item.toString()}>{item}</option>
+                                                        // )
+                                                        // console.log(result.available_tickets)
+                                                        
+                                                    }
+                                                
                                                                                                   
                                                 </td>
 										    </tr>)}
@@ -193,8 +220,9 @@ getTickets() {
   
                                               <td className="price" id="totalPrice">Total Price KES 0</td>
                                               }  
-						
-                                                { result.available_tickets<1 &&
+                                                
+                                                {
+                                                    result.available_tickets>1 && Moment()<Moment(result.ticket_close_on)&&
 													<td className="price" align="right" id="totalPrice"> Total Price KES
 													<button type="submit"  className="primary-link btn btn-large btn-block btn-primary">Buy Ticket </button>
 													

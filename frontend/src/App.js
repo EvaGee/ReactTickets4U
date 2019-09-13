@@ -12,6 +12,10 @@ import { Carousel } from 'react-responsive-carousel';
 import { IntersectionWith } from 'react-lodash';
 import { assign } from 'react-lodash';
 import { cloneDeep } from 'react-lodash'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 
 class App extends React.Component {
 	constructor(props){
@@ -24,7 +28,7 @@ class App extends React.Component {
     errors: null,
 	};
 }
-	
+ 
 
 
   // Now we're going to make a request for data using axios
@@ -107,10 +111,10 @@ class App extends React.Component {
           ( 
             <div>
             
-                {results &&
+                
                 <Carousel showThumbs={false}>
                 {
-                   results.map(result=>{
+                   results && results.map(result=>{
                  return(
 
                     <div key={result.id}>
@@ -120,7 +124,7 @@ class App extends React.Component {
                           </Link>
                       </div>
                   );
-                })} </Carousel>}
+                })} </Carousel>
                 {results.length===0 &&
                   <a href="http://dashboard.tickets4u.co.ke/index.php/login">
 		            <img className="mySlides img-responsive" src="assets/images/default.jpg"/> 

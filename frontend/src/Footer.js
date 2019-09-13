@@ -67,7 +67,7 @@ class Footer extends React.Component {
 										<input type="text" name="subject" className="form-control"  placeholder="subject"  required/>
 									</div>
 									<div className="form-group">
-										<textarea name="comment" placeholder="write something..." required></textarea>
+										<textarea name="comment" className="form-control" placeholder="write something..." required></textarea>
 									</div>
 									<div className="form-group">
 										<button type="submit" name="send" className="btn btn-primary" href="#">send</button>

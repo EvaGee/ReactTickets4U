@@ -1,7 +1,4 @@
-import React, {Component} from 'react';
-import Moment from 'moment';
-import { Redirect } from 'react-router';
-import axios from 'axios';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.png';
 import './App.css';
@@ -10,7 +7,11 @@ import AboutUs from './components/aboutUs.components';
 import CreateEvent from './dashboard/createEvent';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import Login from './dashboard/register';
+import Login from './dashboard/login';
+import Register from './dashboard/register';
+import ForgotPassword from './dashboard/forgotPassword';
+
+
 
 class Header extends React.Component {
 
@@ -41,7 +42,7 @@ class Header extends React.Component {
 						</Link>
 					</li>
 					<li>
-						<Link to={'/'}>
+						<Link to={'/createEvent'}>
 							<i className="fa fa-envelope-o"></i>
 							info@tickets4u.co.ke
 						</Link>
@@ -92,8 +93,9 @@ class Header extends React.Component {
               <Route exact path='/home'  />
               <Route path='/aboutUs' component={AboutUs} />
 			  <Route path='/createEvent' component={CreateEvent} />
+			  <Route path='/register' component={Register} />
 			  <Route path='/login' component={Login} />
-              
+              <Route path='/reset' component={ForgotPassword} />
           </Switch>
         </div>
         </Router>

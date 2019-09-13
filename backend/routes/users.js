@@ -63,20 +63,40 @@ app.get('/eventsTickets', function(req,res){
             });
                
         
-app.post('/data', function(req, res){
+app.post('/register', function(req, res){
 	console.log(req.body); 
-    var data = {event_description:req.body.event_description};
-    var sql = 'INSERT INTO event_Assets SET ?';
+    var data={
+        user_name:req.body.user_name,
+        user_email:req.body.user_email,
+        user_phone:req.body.user_phone,
+        user_password:req.body.user_password
+    };
+    var sql = 'INSERT INTO users ?';
     db.query(sql, data, (err, result)=>{
     if(err) throw err;
     console.log(result);
-    res.send({ 
-		event_description: req.body.event_description,
-
-	});
+  
 });
 });
 
+app.post('/events', function(req, res){
+	console.log(req.body); 
+    var data={
+        event_title:req.body.title,
+        event_coodinates:req.body.location,
+        event_venue:req.body.venue,
+        event_category_id:req.body.category,
+        event_date:req.body.venue,
+        end_date:req.body.date
+
+    };
+    var sql = 'INSERT INTO events ?';
+    db.query(sql, data, (err, result)=>{
+    if(err) throw err;
+    console.log(result);
+  
+});
+});
 app.listen(3210, ()=>{
     console.log('Server listening at port 3210')
 });

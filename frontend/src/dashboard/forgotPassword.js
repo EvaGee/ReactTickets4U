@@ -10,14 +10,7 @@ export default class ForgotPassword extends Component {
         return (
             <Router>
             <div className="jumbotron">
-            <div id="recover_password" class="modal fade">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                <h5 className="modal-title">Reset Password</h5>
-                            </div>
-    
+           
                             <form action="<?php echo base_url(); ?>index.php/Login/send_recover_email" method="post">
                                 
                             <div className="modal-body">
@@ -34,9 +27,7 @@ export default class ForgotPassword extends Component {
                                 <button type="submit" className="btn btn-primary" >Send</button>
                             </div>
                             </form>
-                        </div>
-                    </div>
-            </div>
+                        
             </div>
             <Switch>
               <Route exact path='/home'  />
